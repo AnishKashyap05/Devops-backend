@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: ''
+                git branch: 'main', url: 'https://github.com/AnishKashyap05/Devops-backend.git'
             }
         }
         stage('Build JAR') {
@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                sh "docker build -t $IMAGE_NAME:latest ./backend"
+                sh "docker build -t $IMAGE_NAME:latest ."
             }
         }
         stage('Push to Docker Hub') {
